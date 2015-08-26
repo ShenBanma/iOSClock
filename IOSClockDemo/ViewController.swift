@@ -35,6 +35,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     
     var saveTime: String = ""
     
+    var indexNumer = 0
+    
     var time: Int = 0 {
         didSet {
             if time >= 0 {
@@ -208,15 +210,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     
     func startRotate() {
         secondRotation()
-//        timer1 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "bigPointRotate", userInfo: nil, repeats: true)
-        timer1 = NSTimer(timeInterval: 1, target: self, selector: "bigPointRotate", userInfo: nil, repeats: true)
-        timer2 = NSTimer(timeInterval: 60, target: self, selector: "smallPointRotate", userInfo: nil, repeats: true)
-        let runLoop = NSRunLoop.currentRunLoop()
-        runLoop.addTimer(timer1!, forMode: NSRunLoopCommonModes)
-        runLoop.addTimer(timer2!, forMode: NSRunLoopCommonModes)
-        runLoop.run()
-        //timer2 = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "smallPointRotate", userInfo: nil, repeats: true)
-        //NSRunLoop.currentRunLoop().addTimer(timer2!, forMode: NSDefaultRunLoopMode)
+        timer1 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "bigPointRotate", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer1!, forMode: NSRunLoopCommonModes)
+        
+//        timer2 = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "smallPointRotate", userInfo: nil, repeats: true)
+//        NSRunLoop.currentRunLoop().addTimer(timer2!, forMode: NSRunLoopCommonModes)
     }
     
     func bigPointRotate() {
@@ -226,6 +224,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
             time--
             return
         }
+        indexNumer++
+        if indexNumer % 60 == 0 {
+            smallPointRotate()
+            indexNumer = 0
+        }
+        
         var animat = bigPointView.layer.pop_animationForKey("rotation") as? POPSpringAnimation
         if animat != nil {
             animat!.fromValue = fromRotation
@@ -292,6 +296,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
         stop()
         autoFinish = false
         time = 0
+        indexNumer = 0
         saveTime = ""
         let animat = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
         animat.fromValue = fromRotation % (2 * M_PI)
