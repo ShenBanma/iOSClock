@@ -208,10 +208,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     
     func startRotate() {
         secondRotation()
-        timer1 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "bigPointRotate", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(timer1!, forMode: NSRunLoopCommonModes)
-        timer2 = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "smallPointRotate", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(timer2!, forMode: NSRunLoopCommonModes)
+//        timer1 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "bigPointRotate", userInfo: nil, repeats: true)
+        timer1 = NSTimer(timeInterval: 1, target: self, selector: "bigPointRotate", userInfo: nil, repeats: true)
+        timer2 = NSTimer(timeInterval: 60, target: self, selector: "smallPointRotate", userInfo: nil, repeats: true)
+        let runLoop = NSRunLoop.currentRunLoop()
+        runLoop.addTimer(timer1!, forMode: NSRunLoopCommonModes)
+        runLoop.addTimer(timer2!, forMode: NSRunLoopCommonModes)
+        runLoop.run()
+        //timer2 = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "smallPointRotate", userInfo: nil, repeats: true)
+        //NSRunLoop.currentRunLoop().addTimer(timer2!, forMode: NSDefaultRunLoopMode)
     }
     
     func bigPointRotate() {
@@ -274,8 +279,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     func start() {
         if time != 0 {
             autoFinish = true
-            startRotate()
             savingTime()
+            startRotate()
         }
     }
     
