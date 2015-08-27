@@ -37,6 +37,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     
     var indexNumer = 0
     
+    var isStarting = false
+    
     var time: Int = 0 {
         didSet {
             if time >= 0 {
@@ -281,7 +283,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     }
     
     func start() {
-        if time != 0 {
+        if time != 0 && !isStarting {
+            isStarting = true
             autoFinish = true
             savingTime()
             notificationAfterTime(time)
@@ -290,11 +293,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
     }
     
     func stop() {
+        isStarting = false
         stopRotate()
     }
     
     func reload() {
         stop()
+        isStarting = false
         autoFinish = false
         time = 0
         indexNumer = 0

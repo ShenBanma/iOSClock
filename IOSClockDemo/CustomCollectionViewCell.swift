@@ -47,7 +47,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
         self.layer.pop_removeAllAnimations()
-        var animat = self.layer.pop_animationForKey("returnScale") as? POPSpringAnimation
+        var animat = self.layer.pop_animationForKey("toScale") as? POPSpringAnimation
         
         if animat != nil {
             animat!.fromValue = NSValue(CGPoint: CGPoint(x: 0.8, y: 0.8))
@@ -59,7 +59,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             animat!.autoreverses = false
             animat!.springBounciness = 15
             animat!.springSpeed = 20
-            self.layer.pop_addAnimation(animat, forKey: "returnScale")
+            self.layer.pop_addAnimation(animat, forKey: "toScale")
         }
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
@@ -70,7 +70,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesMoved(touches, withEvent: event)
         self.layer.pop_removeAllAnimations()
-        var animat = self.layer.pop_animationForKey("returnScale") as? POPSpringAnimation
+        var animat = self.layer.pop_animationForKey("toScale") as? POPSpringAnimation
         
         if animat != nil {
             animat!.fromValue = NSValue(CGPoint: CGPoint(x: 0.8, y: 0.8))
@@ -82,7 +82,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             animat!.autoreverses = false
             animat!.springBounciness = 15
             animat!.springSpeed = 20
-            self.layer.pop_addAnimation(animat, forKey: "returnScale")
+            self.layer.pop_addAnimation(animat, forKey: "toScale")
         }
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
