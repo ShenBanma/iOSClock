@@ -71,13 +71,13 @@ class ContentViewOne: UIView, UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let animat = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-        animat.fromValue = NSValue(CGPoint: CGPoint(x: 1, y: 1))
-        animat.toValue = NSValue(CGPoint: CGPoint(x: 0.8, y: 0.8))
-        animat.autoreverses = true
-        animat.springBounciness = 15
-        animat.springSpeed = 20
-        collectionView.cellForItemAtIndexPath(indexPath)?.layer.pop_addAnimation(animat, forKey: nil)
+//        let animat = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+//        animat.fromValue = NSValue(CGPoint: CGPoint(x: 1, y: 1))
+//        animat.toValue = NSValue(CGPoint: CGPoint(x: 0.8, y: 0.8))
+//        animat.autoreverses = true
+//        animat.springBounciness = 15
+//        animat.springSpeed = 20
+//        collectionView.cellForItemAtIndexPath(indexPath)?.layer.pop_addAnimation(animat, forKey: nil)
         delegate?.getSelectResult(indexPath.row)
     }
     
