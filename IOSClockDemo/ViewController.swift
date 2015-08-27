@@ -284,6 +284,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
         if time != 0 {
             autoFinish = true
             savingTime()
+            notificationAfterTime(time)
             startRotate()
         }
     }
@@ -336,6 +337,18 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
             string = "\(m)分\(s)秒"
         }
         saveTime = string
+    }
+    
+    func notificationAfterTime(second: Int) {
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
+        let notification = UILocalNotification()
+        notification.fireDate = NSDate(timeIntervalSinceNow: (second as NSNumber).doubleValue)
+        
+        notification.timeZone = NSTimeZone.systemTimeZone()
+        notification.alertBody = "计时完成!"
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
 
     override func didReceiveMemoryWarning() {
