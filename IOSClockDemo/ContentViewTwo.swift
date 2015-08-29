@@ -33,6 +33,8 @@ class ContentViewTwo: UIView,UITableViewDelegate, UITableViewDataSource {
     var timeInformationArray: [TimeInformation] = []
     
     var tableView: UITableView!
+    
+    var view1: UIView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,13 +54,31 @@ class ContentViewTwo: UIView,UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clearColor()
         tableView.separatorStyle = .None
+        view1 = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 10))
+        view1.backgroundColor = UIColor.clearColor()
         self.addSubview(label)
         self.addSubview(tableView)
 
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return timeInformationArray.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else {
+            return 10
+        }
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return view1
     }
 
     
@@ -69,10 +89,10 @@ class ContentViewTwo: UIView,UITableViewDelegate, UITableViewDataSource {
         }
         cell?.selectionStyle = UITableViewCellSelectionStyle.None
         
-        cell?.backgroundColor = UIColor.clearColor()
-        cell?.textLabel?.text = timeInformationArray[indexPath.row].timeLong
+        cell?.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        cell?.textLabel?.text = timeInformationArray[indexPath.section].timeLong
         cell?.textLabel?.textColor = UIColor.orangeColor()
-        cell?.detailTextLabel?.text = timeInformationArray[indexPath.row].timeDate
+        cell?.detailTextLabel?.text = timeInformationArray[indexPath.section].timeDate
         cell?.detailTextLabel?.textColor = UIColor.orangeColor()
         
         return cell!

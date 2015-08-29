@@ -44,7 +44,7 @@
 		2C9594971B8C1C8E0082653C /* IOSClockDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSClockDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C95949C1B8C1C8E0082653C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C95949D1B8C1C8E0082653C /* IOSClockDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSClockDemoTests.swift; sourceTree = "<group>"; };
-		2C9594A71B8C1CA80082653C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		2C9594A71B8C1CA80082653C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2C9594A91B8C234A0082653C /* IOSClockDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOSClockDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		3EEE528C90504D2A9F58874E /* Pods-IOSClockDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSClockDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSClockDemo/Pods-IOSClockDemo.release.xcconfig"; sourceTree = "<group>"; };
 		62EF7D9BC59DA9F2A713903A /* Pods-IOSClockDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSClockDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSClockDemo/Pods-IOSClockDemo.debug.xcconfig"; sourceTree = "<group>"; };

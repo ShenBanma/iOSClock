@@ -168,7 +168,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
         
         view.addSubview(view1)
         view.addSubview(view2)
-    
         view.addSubview(effectView)
         view.addSubview(textLabel)
         view.addSubview(imageView)
