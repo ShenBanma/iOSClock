@@ -159,13 +159,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, SelectResultDelega
         page.currentPage = 0
         page.addTarget(self, action: "changeValue:", forControlEvents: UIControlEvents.ValueChanged)
         
-        textLabel = UILabel(frame: CGRect(x: w * 1 / 10 + w * 2 / 25 + 15, y: 20 + imageView.bounds.height * 1 / 4, width: w - (w * 1 / 10 + w * 2 / 25) * 2 - 30, height: imageView.bounds.height * 1 / 4 - 10))
+        let ih = imageView.bounds.height
+        textLabel = UILabel(frame: CGRect(x: w * 9 / 50 + 15, y: 20 + ih * 1 / 4, width: w * 16 / 25 - 30, height: ih * 1 / 4 - 10))
         textLabel.backgroundColor = UIColor.clearColor()
         textLabel.layer.cornerRadius = 30
         textLabel.text = "00:00"
         textLabel.font = UIFont.boldSystemFontOfSize(40 * UIScreen.mainScreen().bounds.width / 500)
         textLabel.textAlignment = .Center
-        
+
         view.addSubview(view1)
         view.addSubview(view2)
         view.addSubview(effectView)
