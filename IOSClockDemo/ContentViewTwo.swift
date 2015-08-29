@@ -87,8 +87,10 @@ class ContentViewTwo: UIView,UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         }
+        cell?.layer.cornerRadius = 10
         cell?.selectionStyle = UITableViewCellSelectionStyle.None
-        
+        cell?.layer.borderWidth = 2
+        cell?.layer.borderColor = UIColor.orangeColor().CGColor
         cell?.backgroundColor = UIColor(white: 1, alpha: 0.2)
         cell?.textLabel?.text = timeInformationArray[indexPath.section].timeLong
         cell?.textLabel?.textColor = UIColor.orangeColor()
