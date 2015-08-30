@@ -26,6 +26,7 @@ class ContentViewOne: UIView, UICollectionViewDataSource, UICollectionViewDelega
         collectionView.registerClass(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "customCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.delaysContentTouches = false
         self.addSubview(collectionView)
         customFrame = frame
     }
